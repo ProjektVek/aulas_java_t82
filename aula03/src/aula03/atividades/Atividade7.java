@@ -39,6 +39,11 @@ public class Atividade7 {
 			resultado = num1 * num2;
 			break;
 		case 4:
+			if(num2 == 0) {
+				System.out.println("\nDivisão por 0!");
+				leia.close();
+				return;
+			}
 			textoOperacao = '/';
 			resultado = num1 / num2;
 			break;
