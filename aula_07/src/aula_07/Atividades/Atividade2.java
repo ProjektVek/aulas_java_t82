@@ -3,8 +3,9 @@ package aula_07.Atividades;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
-public class Atividade1 {
+public class Atividade2 {
 
 	public static void main(String[] args) {
 		
@@ -12,16 +13,17 @@ public class Atividade1 {
 		
 		int opcao = 2;
 
-		Queue<String> clientes = new LinkedList<String>();
+		// Cria a pilha
+		Stack<String> pilhaDeLivros = new Stack<String>();
 		
 		do {
 			// Imprime menu
 			System.out.println("\n");
 			System.out.println("*********************************************************");
 			System.out.println("*                                                       *");
-			System.out.println("*             1 - Adicionar Cliente na Fila             *");
-			System.out.println("*             2 - Listar todos os Clientes              *");
-			System.out.println("*             3 - Retirar Cliente da Fila               *");
+			System.out.println("*             1 - Adicionar Livro na pilha              *");
+			System.out.println("*             2 - Listar todos os livros                *");
+			System.out.println("*             3 - Retirar Livro da pilha                *");
 			System.out.println("*             0 - Sair                                  *");
 			System.out.println("*                                                       *");
 			System.out.println("*********************************************************");
@@ -39,35 +41,39 @@ public class Atividade1 {
 			// Processa Opção
 			switch(opcao) {
 			
-			// Adiciona Cliente
+			// Adiciona Livro
 			case 1:
-				System.out.print("\nDigite o nome do cliente: ");
+				System.out.print("\nDigite o nome do livro: ");
 				String nome = leia.next();
-				clientes.add(nome);
-				System.out.printf("\nCliente %s adicionado com sucesso!", nome);
+				pilhaDeLivros.push(nome);
+				System.out.printf("\nLivro %s adicionado com sucesso!", nome);
 				break;
 			
-			// Lista Clientes
+			// Lista Livros
 			case 2:
 				int contador = 0;
 				System.out.println();
 				
-				if(clientes.size()==0)
-					System.out.println("Não há clientes na lista!");
+				if(pilhaDeLivros.size()==0)
+					System.out.println("Não há livros na lista!");
 				else
-					for(var cliente : clientes) {
+					for(var livro : pilhaDeLivros) {
 						contador++;
-						System.out.printf("Cliente %d: %s\n", contador, cliente);
+						System.out.printf("Livro %d: %s\n", contador, livro);
 						}
 				break;
 			
-			// Remove cliente
+			// Remove Livro
 			case 3:
-				if(clientes.size()==0)
-					System.out.println("\nNão há clientes na lista!");
+				if(pilhaDeLivros.size()==0)
+					System.out.println("\nNão há livros na lista!");
 				else
-					System.out.printf("\nCliente %s retirado da lista!", clientes.poll());
+					System.out.printf("\nLivro %s retirado da lista!", pilhaDeLivros.pop());
 				
+				break;
+			
+			case 0:
+				System.out.println("\nPrograma Finalizado!");
 				break;
 			}
 			
